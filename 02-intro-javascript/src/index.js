@@ -19,10 +19,6 @@ try {
 
 getImagen();
 
-
-
-
-
 // const apiKey = 'BcfAPduX1xL6cDCT6BQuISHI1mJ6b94A';
 
 // const peticion = fetch(`http://api.giphy.com/v1/gifs/random?api_key=${apiKey}`);
