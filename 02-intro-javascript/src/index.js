@@ -1,36 +1,55 @@
 
-// Desestructuración
 
-const persona = {
-    nombre: 'Tony',
-    edad: 45,
-    clave: 'Ironman'
-};
+const getImagen = async() => {
 
-const {nombre:nombre2, edad, clave} = persona;
+try {
+    const apiKey = 'BcfAPduX1xL6cDCT6BQuISHI1mJ6b94A';
+    const resp =  await fetch(`http://api.giphy.com/v1/gifs/random?api_key=${apiKey}`);
+    const {data } = await resp.json();
 
-console.log(nombre2);
-console.log(persona.edad);
-console.log(persona.clave);
+    const { url } = data.images.original;
+    const img = document.createElement('img');
+    img.src = url;
+    document.body.append(img);
 
+    } catch (err) {
 
+    }
+}
 
-
-
-
-
-
+getImagen();
 
 
 
 
 
+// const apiKey = 'BcfAPduX1xL6cDCT6BQuISHI1mJ6b94A';
+
+// const peticion = fetch(`http://api.giphy.com/v1/gifs/random?api_key=${apiKey}`);
+
+// peticion
+//     .then( resp => resp.json())
+//     .then(({data}) => {
+//         const { url } = data.images.original;
+//         const img = document.createElement('img');
+//         img.src = url;
+//         document.body.append(img);
+//     })
+//     .catch (console.warn);
 
 
 
+// const promesa = new Promise( (resolve, reject) => {
+//     setTimeout( () => {
+        
+        
+//         resolve();
+//     }, 2000 )
+// } );
 
-
-
+// promesa.then( () =>{
+//     console.log('Then de la promesa')
+// } )
 
 
 /*const persona = {
@@ -57,3 +76,32 @@ console.log(persona2.nombre);*/
 
 // console.log(arr);
 // console.log(arr2);
+
+// Desestructuración
+
+// const persona = {
+//     nombre: 'Tony',
+//     edad: 45,
+//     clave: 'Ironman'
+// };
+
+// const {nombre:nombre2, edad, clave} = persona;
+
+// console.log(nombre2);
+// console.log(persona.edad);
+// console.log(persona.clave);
+
+// import heroes, { owners } from './data/heroes';
+
+// console.log(owners);
+
+
+
+// const getHeroById = (id) => {
+//     return heroes.find((heroe) => heroe.id === id );
+// }
+
+// const getHeoresByOwner = (owner) => heroes.filter((heroe) =>heroe.owner === owner );
+
+// console.log(getHeroById(2));
+// console.log(getHeoresByOwner('Marvel'));
